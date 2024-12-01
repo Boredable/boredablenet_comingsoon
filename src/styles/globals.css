@@ -2,20 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: 'Mona Sans';
+  src:
+    url('/fonts/MonaSans[slnt,wdth,wght].woff2') format('woff2 supports variations'),
+    url('/fonts/MonaSans[slnt,wdth,wght].woff2') format('woff2-variations');
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: 'Space Mono';
+  src: url('/fonts/Space-Mono.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+
+.text-wide {
+  font-stretch: 125%;
+}
+
+.site-main-wrapper {
+  @apply pointer-events-none flex flex-row items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 relative z-50;
+}
+
+.site-main {
+  @apply flex flex-col gap-x-8 row-start-2 items-center text-center mx-auto mt-64;
+}
+
+.btn {
+  @apply pointer-events-auto text-wide rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-white text-black gap-2 hover:bg-[#f2f2f2] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5;
+}
+
+.site-footer {
+  @apply pointer-events-auto fixed bottom-5 left-0 right-0 text-sm uppercase text-center w-full text-wide;
 }

@@ -1,62 +1,52 @@
-import localFont from "next/font/local";
-import ParticlesBackground from "../components/ParticlesBackground";
-
-// Import custom fonts
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import Head from "next/head";
+import FloatingIcosahedron from "../components/FloatingIcosahedron";
 
 export default function Home() {
   return (
-    <div style={{ position: "relative", height: "100vh", overflow: "hidden" }}>
-      {/* Particle Background */}
-      <ParticlesBackground />
-
-      {/* Main Content */}
-      <div
-        className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] relative z-10`}
-      >
-        <main className="flex flex-col gap-x-8 row-start-2 items-center text-center">
-          {/* Title */}
-          <h1 className="text-4xl font-black mb-1 text-center">Boredable.net</h1>
-
-          {/* Subtitle */}
-          <p className="text-sm mb-8 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-            Coming Soon.
-          </p>
-
-          {/* CTA Button */}
-          <div className="flex gap-4 items-center flex-col sm:flex-row">
+    <>
+      <Head>
+        <title>Boredable</title>
+        <meta
+          name="description"
+          content="A new, boring social network for adults. Coming Soon."
+        />
+        <meta property="og:title" content="Boredable" />
+        <meta
+          property="og:description"
+          content="A new, boring social network for adults. Coming Soon."
+        />
+        <meta property="og:image" content="/images/og_preview.jpg" />
+        <link rel="icon" href="/favicon.png" sizes="any" />
+      </Head>
+      <div className="relative overflow-hidden h-screen">
+        <div className="site-main-wrapper">
+          <main className="site-main">
+            <h1 className="text-3xl lg:text-4xl font-black mb-1 text-center text-wide mt-24">
+              boredable.net
+            </h1>
+            <p className="text-sm mb-8 text-center text-wide">Coming Soon.</p>
             <a
-              className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+              className="btn"
               href="https://underlost.net/boredable"
               target="_blank"
               rel="noopener noreferrer"
             >
               Learn More
             </a>
-          </div>
-        </main>
-
-        {/* Footer */}
-        <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center text-sm">
-          <a
-            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="https://boredable.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Copyright © Boredable.com
-          </a>
-        </footer>
+          </main>
+          <footer className="site-footer">
+            <a
+              className="hover:underline hover:underline-offset-4 font-black"
+              href="https://boredable.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Copyright © Boredable.org 2024
+            </a>
+          </footer>
+        </div>
+        <FloatingIcosahedron />
       </div>
-    </div>
+    </>
   );
 }
